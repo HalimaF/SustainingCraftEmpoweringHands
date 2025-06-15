@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link href="https://fonts.googleapis.com/css2?family=Fauna+One&display=swap" rel="stylesheet">
+  <meta name="description" content="A platform to preserve heritage and empower artisans." />
+  <meta name="keywords" content="artisans, crafts, heritage, empowerment" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Sustaining Crafts, Empowering Hands</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+  <script src="/assets/js/bootstrap.bundle.min.js"></script>
+  <script src="/components/include.js"></script>
+</head>
+<body>
+  <div id="header"></div>
+  <script>
+    fetch('/components/header-guest.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('header').innerHTML = html; });
+  </script>
+  <main class="form-container">
+    <form id="loginForm">
+      <label for="email">Email:</label>
+      <input type="email" id="email" required />
+      
+      <label for="password">Password:</label>
+      <input type="password" id="password" required />
+      
+      <label for="role">Login as:</label>
+      <select id="role" required>
+        <option value="">--Select Role--</option>
+        <option value="buyer">Buyer</option>
+        <option value="seller">Seller</option>
+        <option value="admin">Admin</option>
+      </select>
+      
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="/auth/register.html">Register here</a></p>
+  </main>
+  <footer class="footer">
+    <p>&copy; 2025 Sustaining Crafts, Empowering Hands. All rights reserved.</p>
+  </footer>
+  <script>
+    // Login functionality with role-based redirect
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const role = document.getElementById("role").value;
+      if (!role) {
+        alert("Please select a role.");
+        return;
+      }
+      if (email && password) {
+        const userData = { email: email, role: role };
+        localStorage.setItem("loggedInUser", JSON.stringify(userData));
+        // Redirect based on role
+        if (role === "seller") {
+          window.location.href = "/artisians/dashboard.html";
+        } else if (role === "buyer") {
+          window.location.href = "/Frontend/index.html";
+        } else if (role === "admin") {
+          window.location.href = "/admin/dashboard.html";
+        }
+      } else {
+        alert("Invalid email or password.");
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Fauna+One&display=swap" rel="stylesheet">
+    <meta name="description" content="A platform to preserve heritage and empower artisans." />
+    <meta name="keywords" content="artisans, crafts, heritage, empowerment" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn - Sustaining Crafts, Empowering Hands</title>
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/components/include.js"></script>
+</head>
+<body>
+    <div id="header"></div>
+    <script>
+      fetch('/components/header-guest.html')
+        .then(res => res.text())
+        .then(html => { document.getElementById('header').innerHTML = html; });
+    </script>
+    <main class="container-fluid py-5" style="background: linear-gradient(120deg, #f3c969 0%, #f9f6f2 60%, #23395d 100%); min-height: 100vh;">
+      <h2 class="text-center mb-4 display-5 fw-bold" style="letter-spacing:2px; color:var(--deep-blue);">Learning & Tutorials</h2>
+      <div class="mb-5 d-flex flex-wrap justify-content-center gap-3">
+        <div class="course-enroll-box bg-white shadow-sm rounded-3 px-4 py-3 d-flex align-items-center gap-3">
+          <span class="fw-bold">Pottery Techniques</span>
+          <button class="btn btn-outline-primary btn-sm"><i class="bi bi-person-plus me-1"></i>Enroll</button>
+        </div>
+        <div class="course-enroll-box bg-white shadow-sm rounded-3 px-4 py-3 d-flex align-items-center gap-3">
+          <span class="fw-bold">Pottery Making</span>
+          <button class="btn btn-outline-primary btn-sm"><i class="bi bi-person-plus me-1"></i>Enroll</button>
+        </div>
+        <div class="course-enroll-box bg-white shadow-sm rounded-3 px-4 py-3 d-flex align-items-center gap-3">
+          <span class="fw-bold">Embroidery Patterns</span>
+          <button class="btn btn-outline-primary btn-sm"><i class="bi bi-person-plus me-1"></i>Enroll</button>
+        </div>
+        <div class="course-enroll-box bg-white shadow-sm rounded-3 px-4 py-3 d-flex align-items-center gap-3">
+          <span class="fw-bold">Wood Carving</span>
+          <button class="btn btn-outline-primary btn-sm"><i class="bi bi-person-plus me-1"></i>Enroll</button>
+        </div>
+        <div class="course-enroll-box bg-white shadow-sm rounded-3 px-4 py-3 d-flex align-items-center gap-3">
+          <span class="fw-bold">Leather Crafting</span>
+          <button class="btn btn-outline-primary btn-sm"><i class="bi bi-person-plus me-1"></i>Enroll</button>
+        </div>
+        <div class="course-enroll-box bg-white shadow-sm rounded-3 px-4 py-3 d-flex align-items-center gap-3">
+          <span class="fw-bold">Handmade Jewelry</span>
+          <button class="btn btn-outline-primary btn-sm"><i class="bi bi-person-plus me-1"></i>Enroll</button>
+        </div>
+        <div class="course-enroll-box bg-white shadow-sm rounded-3 px-4 py-3 d-flex align-items-center gap-3">
+          <span class="fw-bold">Textile Weaving</span>
+          <button class="btn btn-outline-primary btn-sm"><i class="bi bi-person-plus me-1"></i>Enroll</button>
+        </div>
+      </div>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
+        <!-- Pottery Making -->
+        <div class="col">
+          <div class="card h-100 shadow-lg border-0 position-relative learn-card">
+            <div class="position-absolute top-0 start-0 h-100" style="width:8px; background:var(--orange); border-radius:8px 0 0 8px;"></div>
+            <div class="card-body pb-0">
+              <div class="ratio ratio-16x9 mb-3 rounded-4 overflow-hidden border border-3 border-warning shadow-sm">
+                <iframe src="https://www.youtube.com/embed/3Kz7caLat3g" title="Pottery Making" allowfullscreen></iframe>
+              </div>
+              <h5 class="card-title mb-2"><i class="bi bi-flower1 me-2 text-warning"></i>Pottery Making</h5>
+              <p class="card-text">Learn pottery making from start to finish with this in-depth tutorial.</p>
+            </div>
+            <div class="card-footer bg-transparent border-0 d-flex gap-2 pb-3">
+              <button class="btn btn-primary flex-fill"><i class="bi bi-question-circle me-1"></i>Take Quiz</button>
+              <button class="btn btn-outline-secondary flex-fill"><i class="bi bi-download me-1"></i>Download Resources</button>
+            </div>
+          </div>
+        </div>
+        <!-- Embroidery Patterns -->
+        <div class="col">
+          <div class="card h-100 shadow-lg border-0 position-relative learn-card">
+            <div class="position-absolute top-0 start-0 h-100" style="width:8px; background:var(--gold); border-radius:8px 0 0 8px;"></div>
+            <div class="card-body pb-0">
+              <div class="ratio ratio-16x9 mb-3 rounded-4 overflow-hidden border border-3 border-warning shadow-sm">
+                <iframe src="https://www.youtube.com/embed/RvWDzFBjBM4" title="Embroidery Patterns" allowfullscreen></iframe>
+              </div>
+              <h5 class="card-title mb-2"><i class="bi bi-scissors me-2 text-warning"></i>Embroidery Patterns</h5>
+              <p class="card-text">Discover traditional embroidery techniques and patterns.</p>
+            </div>
+            <div class="card-footer bg-transparent border-0 d-flex gap-2 pb-3">
+              <button class="btn btn-primary flex-fill"><i class="bi bi-question-circle me-1"></i>Take Quiz</button>
+              <button class="btn btn-outline-secondary flex-fill"><i class="bi bi-download me-1"></i>Download Resources</button>
+            </div>
+          </div>
+        </div>
+        <!-- Wood Carving -->
+        <div class="col">
+          <div class="card h-100 shadow-lg border-0 position-relative learn-card">
+            <div class="position-absolute top-0 start-0 h-100" style="width:8px; background:var(--accent-teal); border-radius:8px 0 0 8px;"></div>
+            <div class="card-body pb-0">
+              <div class="ratio ratio-16x9 mb-3 rounded-4 overflow-hidden border border-3 border-accent-teal shadow-sm">
+                <iframe src="https://www.youtube.com/embed/pA_OZGztFHk" title="Wood Carving" allowfullscreen></iframe>
+              </div>
+              <h5 class="card-title mb-2"><i class="bi bi-tree me-2 text-success"></i>Wood Carving Tutorial</h5>
+              <p class="card-text">Learn step-by-step with guided subtitles and tips.</p>
+            </div>
+            <div class="card-footer bg-transparent border-0 d-flex gap-2 pb-3">
+              <button class="btn btn-primary flex-fill"><i class="bi bi-question-circle me-1"></i>Take Quiz</button>
+              <button class="btn btn-outline-secondary flex-fill"><i class="bi bi-download me-1"></i>Download Resources</button>
+            </div>
+          </div>
+        </div>
+        <!-- Leather Crafting -->
+        <div class="col">
+          <div class="card h-100 shadow-lg border-0 position-relative learn-card">
+            <div class="position-absolute top-0 start-0 h-100" style="width:8px; background:var(--deep-blue); border-radius:8px 0 0 8px;"></div>
+            <div class="card-body pb-0">
+              <div class="ratio ratio-16x9 mb-3 rounded-4 overflow-hidden border border-3 border-deep-blue shadow-sm">
+                <iframe src="https://www.youtube.com/embed/6b6FPUabHzY" title="Leather Crafting" allowfullscreen></iframe>
+              </div>
+              <h5 class="card-title mb-2"><i class="bi bi-leather me-2 text-primary"></i>Leather Crafting</h5>
+              <p class="card-text">Master the art of leather crafting with our tutorials.</p>
+            </div>
+            <div class="card-footer bg-transparent border-0 d-flex gap-2 pb-3">
+              <button class="btn btn-primary flex-fill"><i class="bi bi-question-circle me-1"></i>Take Quiz</button>
+              <button class="btn btn-outline-secondary flex-fill"><i class="bi bi-download me-1"></i>Download Resources</button>
+            </div>
+          </div>
+        </div>
+        <!-- Handmade Jewelry -->
+        <div class="col">
+          <div class="card h-100 shadow-lg border-0 position-relative learn-card">
+            <div class="position-absolute top-0 start-0 h-100" style="width:8px; background:var(--purple); border-radius:8px 0 0 8px;"></div>
+            <div class="card-body pb-0">
+              <div class="ratio ratio-16x9 mb-3 rounded-4 overflow-hidden border border-3 border-purple shadow-sm">
+                <iframe src="https://www.youtube.com/embed/Oel23k2MXYs" title="Handmade Jewelry" allowfullscreen></iframe>
+              </div>
+              <h5 class="card-title mb-2"><i class="bi bi-gem me-2 text-primary"></i>Handmade Jewelry</h5>
+              <p class="card-text">Explore the world of traditional jewelry making.</p>
+            </div>
+            <div class="card-footer bg-transparent border-0 d-flex gap-2 pb-3">
+              <button class="btn btn-primary flex-fill"><i class="bi bi-question-circle me-1"></i>Take Quiz</button>
+              <button class="btn btn-outline-secondary flex-fill"><i class="bi bi-download me-1"></i>Download Resources</button>
+            </div>
+          </div>
+        </div>
+        <!-- Textile Weaving -->
+        <div class="col">
+          <div class="card h-100 shadow-lg border-0 position-relative learn-card">
+            <div class="position-absolute top-0 start-0 h-100" style="width:8px; background:var(--red); border-radius:8px 0 0 8px;"></div>
+            <div class="card-body pb-0">
+              <div class="ratio ratio-16x9 mb-3 rounded-4 overflow-hidden border border-3 border-red shadow-sm">
+                <iframe src="https://www.youtube.com/embed/MhhdHz9cuG4" title="Textile Weaving" allowfullscreen></iframe>
+              </div>
+              <h5 class="card-title mb-2"><i class="bi bi-patch-measure me-2 text-danger"></i>Textile Weaving</h5>
+              <p class="card-text">Discover the art of textile weaving with our expert artisans.</p>
+            </div>
+            <div class="card-footer bg-transparent border-0 d-flex gap-2 pb-3">
+              <button class="btn btn-primary flex-fill"><i class="bi bi-question-circle me-1"></i>Take Quiz</button>
+              <button class="btn btn-outline-secondary flex-fill"><i class="bi bi-download me-1"></i>Download Resources</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+      <div id="footer"></div>
+
+</body>
+</html>
+<style>
+.learn-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+  background: rgba(255,255,255,0.97);
+}
+.learn-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(35,57,93,0.18);
+}
+.learn-card .card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+</style>

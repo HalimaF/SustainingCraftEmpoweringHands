@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>My Products - Artisan Dashboard | Sustaining Crafts, Empowering Hands</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/components/include.js"></script>
+</head>
+<body>
+    <div id="header"></div>
+    <script>
+      fetch('/components/header-artisan.html')
+        .then(res => res.text())
+        .then(html => { document.getElementById('header').innerHTML = html; });
+    </script>
+    <main class="container my-5">
+        <h2 class="mb-4">My Products</h2>
+        <a href="#" class="btn btn-success mb-3">Add New Product</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>PRD-1001</td>
+                    <td>Handwoven Basket</td>
+                    <td>Basketry</td>
+                    <td>₨ 3,000</td>
+                    <td><span class="badge bg-success">Active</span></td>
+                    <td>
+                        <button class="btn btn-sm btn-primary">Edit</button>
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>PRD-1002</td>
+                    <td>Embroidered Shawl</td>
+                    <td>Textiles</td>
+                    <td>₨ 5,000</td>
+                    <td><span class="badge bg-warning">Pending</span></td>
+                    <td>
+                        <button class="btn btn-sm btn-primary">Edit</button>
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>PRD-1003</td>
+                    <td>Blue Pottery Vase</td>
+                    <td>Pottery</td>
+                    <td>₨ 2,500</td>
+                    <td><span class="badge bg-danger">Inactive</span></td>
+                    <td>
+                        <button class="btn btn-sm btn-primary">Edit</button>
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                    </td>
+                </tr>
+                <!-- More rows as needed -->
+            </tbody>
+        </table>
+    </main>
+    <footer class="footer text-center py-3">
+        <p>&copy; 2025 Sustaining Crafts, Empowering Hands. All rights reserved.</p>
+    </footer>
+</body>
+</html>

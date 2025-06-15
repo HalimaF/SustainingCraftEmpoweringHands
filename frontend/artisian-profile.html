@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artisan Profile - Sustaining Crafts, Empowering Hands</title>
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/components/include.js"></script>
+</head>
+<body>
+    <div id="header"></div>
+    <script>
+      fetch('/components/header-guest.html')
+        .then(res => res.text())
+        .then(html => { document.getElementById('header').innerHTML = html; });
+    </script>
+    <main class="container my-5">
+        <div class="row align-items-center mb-4">
+            <div class="col-md-4 text-center">
+                <img src="/assets/images/Back.jpg" class="img-fluid rounded shadow" alt="Ayesha Khan" style="max-width: 250px;">
+            </div>
+            <div class="col-md-8">
+                <h2 class="mb-2">Ayesha Khan</h2>
+                <p><strong>Region:</strong> Lahore, Punjab</p>
+                <p><strong>Specialty:</strong> Hand-embroidered textiles</p>
+                <p><strong>Biography:</strong> Ayesha Khan is a master of traditional hand-embroidered textiles, blending heritage with contemporary design. Her work supports local women and preserves the centuries-old craft of Punjab. She draws inspiration from her family’s legacy and the vibrant culture of Lahore.</p>
+            </div>
+        </div>
+    </main>
+  <div id="footer"></div>
+  <script>
+  // Parse query parameters
+  function getQueryParams() {
+    const params = {};
+    window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str,key,value) {
+      params[key] = decodeURIComponent(value.replace(/\+/g, ' '));
+    });
+    return params;
+  }
+
+  const params = getQueryParams();
+  // Set artisan details if present in URL
+  if(params.name) {
+    document.querySelector('h2.mb-2').textContent = params.name;
+  }
+  if(params.region) {
+    document.querySelector('p strong').parentNode.innerHTML = '<strong>Region:</strong> ' + params.region;
+  }
+  if(params.specialty) {
+    document.querySelectorAll('p strong')[1].parentNode.innerHTML = '<strong>Specialty:</strong> ' + params.specialty;
+  }
+  // Optionally set image if passed as param
+  if(params.img) {
+    document.querySelector('img.img-fluid').src = params.img;
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>404 Not Found - Sustaining Crafts, Empowering Hands</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/components/include.js"></script>
+</head>
+<body>
+    <div id="header"></div>
+    <script>
+      // Load the correct header based on user role
+      const user = JSON.parse(localStorage.getItem('loggedInUser'));
+      let headerFile = '/components/header-guest.html';
+      if (user && user.role === 'admin') headerFile = '/components/header-admin.html';
+      else if (user && user.role === 'seller') headerFile = '/components/header-artisan.html';
+      else if (user && user.role === 'buyer') headerFile = '/components/header-user.html';
+      fetch(headerFile)
+        .then(res => res.text())
+        .then(html => { document.getElementById('header').innerHTML = html; });
+    </script>
+    <main class="container text-center my-5">
+        <h1 class="display-1 text-danger">404</h1>
+        <h2 class="mb-4">Page Not Found</h2>
+        <p class="lead mb-4">Sorry, the page you are looking for does not exist or has been moved.</p>
+        <a href="/Frontend/index.html" class="btn btn-primary">Go to Home</a>
+        <a href="/Frontend/marketplace.html" class="btn btn-outline-secondary ms-2">Browse Marketplace</a>
+    </main>
+    <div id="footer"></div>
+</body>
+</html>

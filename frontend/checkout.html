@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Checkout - Sustaining Crafts, Empowering Hands</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <script src="/assets/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+  <div id="header"></div>
+  <script>
+    // Load the correct header based on user role
+    const user = JSON.parse(localStorage.getItem('loggedInUser'));
+    let headerFile = '/components/header-guest.html';
+    if (user && user.role === 'admin') headerFile = '/components/header-admin.html';
+    else if (user && user.role === 'seller') headerFile = '/components/header-artisan.html';
+    else if (user && user.role === 'buyer') headerFile = '/components/header-user.html';
+    fetch(headerFile)
+      .then(res => res.text())
+      .then(html => { document.getElementById('header').innerHTML = html; });
+  </script>
+  <main class="container my-5 main-card">
+    <h2 class="mb-4 text-center"><i class="bi bi-bag-check me-2"></i>Checkout</h2>
+    <div class="row g-4">
+      <div class="col-lg-7">
+        <div class="card mb-4">
+          <div class="card-header bg-primary text-white"><i class="bi bi-cart4 me-2"></i>Order Summary</div>
+          <ul class="list-group list-group-flush" id="checkoutCartList">
+            <!-- Cart items will be injected here by JS -->
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="card">
+          <div class="card-header bg-accent-teal text-white"><i class="bi bi-truck me-2"></i>Shipping Details</div>
+          <div class="card-body">
+            <form id="checkoutForm">
+              <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name" required>
+              </div>
+              <div class="mb-3">
+                <label for="address" class="form-label">Address</label>
+                <input type="text" class="form-control" id="address" required>
+              </div>
+              <div class="mb-3">
+                <label for="city" class="form-label">City</label>
+                <input type="text" class="form-control" id="city" required>
+              </div>
+              <div class="mb-3">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="tel" class="form-control" id="phone" required>
+              </div>
+              <div class="mb-3">
+                <label for="payment" class="form-label">Payment Method</label>
+                <select class="form-select" id="payment" required>
+                  <option value="">Select</option>
+                  <option value="cod">Cash on Delivery</option>
+                  <option value="card">Credit/Debit Card</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-success w-100"><i class="bi bi-credit-card-2-front me-1"></i>Place Order</button>
+            </form>
+            <div id="orderConfirmation" class="alert alert-success mt-4 text-center" style="display:none;">
+              <i class="bi bi-check-circle-fill me-2"></i>Order completed! You will receive a confirmation email shortly.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="footer"></div>
+  <script>
+    // Show order confirmation on form submit
+    document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('orderConfirmation').style.display = 'block';
+      this.style.display = 'none';
+    });
+
+    // Dynamically render cart items from localStorage
+    function renderCheckoutCart() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartList = document.getElementById('checkoutCartList');
+      cartList.innerHTML = '';
+      let total = 0;
+      if (cart.length === 0) {
+        cartList.innerHTML = '<li class="list-group-item text-center">Your cart is empty.</li>';
+        return;
+      }
+      cart.forEach(item => {
+        const priceNum = parseInt(item.price.replace(/[^\d]/g, '')) || 0;
+        total += priceNum;
+        cartList.innerHTML += `
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span><img src="${item.image}" alt="${item.title}" width="40" class="me-2 rounded">${item.title}</span>
+            <span>${item.price}</span>
+          </li>
+        `;
+      });
+      cartList.innerHTML += `
+        <li class="list-group-item d-flex justify-content-between align-items-center fw-bold">
+          Total
+          <span>₨ ${total.toLocaleString()}</span>
+        </li>
+      `;
+    }
+    renderCheckoutCart();
+  </script>
+  <div id="footer"></div>
+  <!-- Bootstrap JS Bundle CDN (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

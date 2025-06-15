@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Fauna+One&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="description" content="A platform to preserve heritage and empower artisans." />
+    <meta name="keywords" content="artisans, crafts, heritage, empowerment" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - Sustaining Crafts, Empowering Hands</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/components/include.js"></script>
+</head>
+<body>
+    <div id="header"></div>
+    <script>
+      fetch('/components/header-guest.html')
+        .then(res => res.text())
+        .then(html => { document.getElementById('header').innerHTML = html; });
+    </script>
+    <main>
+        <h2>About Us</h2>
+        <p><strong>Sustaining Crafts, Empowering Hands</strong> is more than just a marketplace — it's a movement to preserve heritage and empower artisans. Our digital platform, powered by artificial intelligence, is designed to support traditional craftspeople by bringing their timeless creations into the digital age. With deep respect for cultural heritage and an eye toward modern innovation, we aim to bridge the digital divide that often isolates artisans from wider markets.</p>
+
+        <h2>What We Do</h2>
+        <p>Our platform is a unique blend of traditional values and modern technology, providing a digital space where artisans can:</p>
+        <ul>
+            <li><strong>E-Marketplace:</strong> Showcase and sell their handcrafted products to a global audience.</li>
+            <li><strong>Storytelling Platform:</strong> Share the history, origin, and evolution of each craft.</li>
+            <li><strong>E-Learning Space:</strong> Offer and access workshops to pass on traditional skills.</li>
+        </ul>
+
+        <h2>Why It Matters</h2>
+        <p>Many artisans struggle with digital literacy, which limits their online presence. We aim to bridge this gap using AI-powered features, including:</p>
+        <ul>
+            <li><strong>Personalization:</strong> Helping users discover products and stories they love.</li>
+            <li><strong>Automated Storytelling:</strong> Enabling easy narration of craft origins.</li>
+            <li><strong>Smart Marketing:</strong> Boosting visibility and reach with minimal effort.</li>
+        </ul>
+
+        <p>We believe technology should empower — not replace — traditional skills. By blending innovation with heritage, we're ensuring that these crafts continue to inspire generations to come.</p>
+    </main>
+  <div id="footer"></div>
+
+</body>
+</html>

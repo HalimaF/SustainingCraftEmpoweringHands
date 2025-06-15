@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>My Orders - Artisan Dashboard | Sustaining Crafts, Empowering Hands</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/components/include.js"></script>
+</head>
+<body>
+    <div id="header"></div>
+    <script>
+      fetch('/components/header-artisan.html')
+        .then(res => res.text())
+        .then(html => { document.getElementById('header').innerHTML = html; });
+    </script>
+    <main class="container my-5">
+        <h2 class="mb-4">My Orders</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Date</th>
+                    <th>Product</th>
+                    <th>Buyer</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ORD-1023</td>
+                    <td>2025-05-10</td>
+                    <td>Handwoven Basket</td>
+                    <td>Ali Raza</td>
+                    <td>₨ 3,000</td>
+                    <td><span class="badge bg-warning">Processing</span></td>
+                    <td><button class="btn btn-sm btn-success">Mark as Shipped</button></td>
+                </tr>
+                <tr>
+                    <td>ORD-1019</td>
+                    <td>2025-05-08</td>
+                    <td>Embroidered Shawl</td>
+                    <td>Sara Khan</td>
+                    <td>₨ 5,000</td>
+                    <td><span class="badge bg-success">Shipped</span></td>
+                    <td><button class="btn btn-sm btn-secondary" disabled>Shipped</button></td>
+                </tr>
+                <tr>
+                    <td>ORD-1008</td>
+                    <td>2025-05-01</td>
+                    <td>Blue Pottery Vase</td>
+                    <td>Bilal Ahmed</td>
+                    <td>₨ 2,500</td>
+                    <td><span class="badge bg-info">Delivered</span></td>
+                    <td><button class="btn btn-sm btn-secondary" disabled>Delivered</button></td>
+                </tr>
+                <!-- More rows as needed -->
+            </tbody>
+        </table>
+    </main>
+    <footer class="footer text-center py-3">
+        <p>&copy; 2025 Sustaining Crafts, Empowering Hands. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order Management</title>
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/assets/js/bootstrap.bundle.min.js"></script>
+  <script src="/components/include.js"></script>
+</head>
+<body>
+  <div id="header"></div>
+  <script>
+    fetch('/components/header-admin.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('header').innerHTML = html; });
+  </script>
+  <main>
+    <h2>View and Manage Orders</h2>
+    <p>Track order history, shipping status, payments, and resolve disputes.</p>
+    <section class="order-management">
+      <table>
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Buyer</th>
+            <th>Artisan</th>
+            <th>Product</th>
+            <th>Status</th>
+            <th>Payment</th>
+            <th>Dispute</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Example row, replace with dynamic content -->
+          <tr>
+            <td>1001</td>
+            <td>John Smith</td>
+            <td>Jane Doe</td>
+            <td>Handmade Vase</td>
+            <td>Shipped</td>
+            <td>Paid</td>
+            <td>None</td>
+            <td>
+              <button>View</button>
+              <button>Resolve Dispute</button>
+            </td>
+          </tr>
+          <!-- More rows as needed -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <div id="footer"></div>
+  <!-- Bootstrap JS Bundle CDN (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

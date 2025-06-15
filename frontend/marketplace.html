@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link href="https://fonts.googleapis.com/css2?family=Fauna+One&display=swap" rel="stylesheet">
+  <meta name="description" content="A platform to preserve heritage and empower artisans." />
+  <meta name="keywords" content="artisans, crafts, heritage, empowerment" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marketplace - Sustaining Crafts, Empowering Hands</title>
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/assets/js/bootstrap.bundle.min.js"></script>
+  <script src="/components/include.js"></script>
+</head>
+<body>
+  <div id="header"></div>
+  <script>
+    fetch('/components/header-guest.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('header').innerHTML = html; });
+  </script>
+  <main>
+    <section class="product-grid container my-5">
+        <h2>Marketplace</h2>
+        <p>Explore our curated collection of handmade crafts.</p>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+          <div class="col">
+            <div class="card product-card h-100">
+              <img src="/assets/images/pots.jpg" class="card-img-top" alt="Handmade Pottery">
+              <div class="card-body">
+                <h5 class="card-title">Handmade Pottery</h5>
+                <p class="card-text">₨ 2,500 | Multan</p>
+                <a href="/Frontend/cart.html" class="btn btn-primary w-100"><i class="bi bi-cart-plus me-1"></i>Add to Cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card product-card h-100">
+              <img src="/assets/images/shawl.jpg" class="card-img-top" alt="Handmade Shawl">
+              <div class="card-body">
+                <h5 class="card-title">Handmade Shawl</h5>
+                <p class="card-text">₨ 8,000 | Kashmir</p>
+                <a href="/Frontend/cart.html" class="btn btn-primary w-100"><i class="bi bi-cart-plus me-1"></i>Add to Cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card product-card h-100">
+              <img src="/assets/images/jewelry.jpg" class="card-img-top" alt="Traditional Jewelry">
+              <div class="card-body">
+                <h5 class="card-title">Traditional Jewelry</h5>
+                <p class="card-text">₨ 12,000 | Lahore</p>
+                <a href="/Frontend/cart.html" class="btn btn-primary w-100"><i class="bi bi-cart-plus me-1"></i>Add to Cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card product-card h-100">
+              <img src="/assets/images/Bag.jpg" class="card-img-top" alt="Leather Bag">
+              <div class="card-body">
+                <h5 class="card-title">Leather Bag</h5>
+                <p class="card-text">₨ 9,000 | Karachi</p>
+                <a href="/Frontend/cart.html" class="btn btn-primary w-100"><i class="bi bi-cart-plus me-1"></i>Add to Cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card product-card h-100">
+              <img src="/assets/images/toys.jpg" class="card-img-top" alt="Wooden Toy">
+              <div class="card-body">
+                <h5 class="card-title">Wooden Toy</h5>
+                <p class="card-text">₨ 1,500 | Chiniot</p>
+                <a href="/Frontend/cart.html" class="btn btn-primary w-100"><i class="bi bi-cart-plus me-1"></i>Add to Cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card product-card h-100">
+              <img src="/assets/images/box.jpg" class="card-img-top" alt="Handwoven Basket">
+              <div class="card-body">
+                <h5 class="card-title">Handwoven Basket</h5>
+                <p class="card-text">₨ 3,000 | Swat</p>
+                <a href="/Frontend/cart.html" class="btn btn-primary w-100"><i class="bi bi-cart-plus me-1"></i>Add to Cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card product-card h-100">
+              <img src="/assets/images/pots.jpg" class="card-img-top" alt="Handmade Clay Pot">
+              <div class="card-body">
+                <h5 class="card-title">Handmade Clay Pot</h5>
+                <p class="card-text">₨ 2,000 | Multan</p>
+                <a href="/Frontend/cart.html" class="btn btn-primary w-100"><i class="bi bi-cart-plus me-1"></i>Add to Cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card product-card h-100">
+              <img src="/assets/images/wooden box.jpg" class="card-img-top" alt="Handcrafted Wooden Item">
+              <div class="card-body">
+                <h5 class="card-title">Handcrafted Wooden Item</h5>
+                <p class="card-text">₨ 4,500 | Chiniot</p>
+                <a href="/Frontend/cart.html" class="btn btn-primary w-100"><i class="bi bi-cart-plus me-1"></i>Add to Cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card product-card h-100">
+              <img src="/assets/images/scarf1.jpg" class="card-img-top" alt="Handmade Scarf">
+              <div class="card-body">
+                <h5 class="card-title">Handmade Scarf</h5>
+                <p class="card-text">₨ 1,800 | Lahore</p>
+                <a href="/Frontend/cart.html" class="btn btn-primary w-100"><i class="bi bi-cart-plus me-1"></i>Add to Cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card product-card h-100">
+              <img src="/assets/images/jewelry.jpg" class="card-img-top" alt="Handcrafted Jewelry">
+              <div class="card-body">
+                <h5 class="card-title">Handcrafted Jewelry</h5>
+                <p class="card-text">₨ 5,000 | Islamabad</p>
+                <a href="/Frontend/cart.html" class="btn btn-primary w-100"><i class="bi bi-cart-plus me-1"></i>Add to Cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card product-card h-100">
+              <img src="/assets/images/Handmade_ceramics.jpg" class="card-img-top" alt="Handmade Ceramic">
+              <div class="card-body">
+                <h5 class="card-title">Handmade Ceramic</h5>
+                <p class="card-text">₨ 3,500 | Peshawar</p>
+                <a href="/Frontend/cart.html" class="btn btn-primary w-100"><i class="bi bi-cart-plus me-1"></i>Add to Cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card product-card h-100">
+              <img src="/assets/images/rug.jpg" class="card-img-top" alt="Handwoven Rug">
+              <div class="card-body">
+                <h5 class="card-title">Handwoven Rug</h5>
+                <p class="card-text">₨ 15,000 | Swat</p>
+                <a href="/Frontend/cart.html" class="btn btn-primary w-100"><i class="bi bi-cart-plus me-1"></i>Add to Cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card product-card h-100">
+              <img src="/assets/images/cushion_cover.jpg" class="card-img-top" alt="Handmade Cushion">
+              <div class="card-body">
+                <h5 class="card-title">Handmade Cushion</h5>
+                <p class="card-text">₨ 2,200 | Lahore</p>
+                <a href="/Frontend/cart.html" class="btn btn-primary w-100"><i class="bi bi-cart-plus me-1"></i>Add to Cart</a>
+              </div>
+            </div>
+          </div>
+          <!-- Add more products as needed, following the same pattern -->
+        </div>
+    </section>
+  </main>
+   <div id="footer"></div>
+
+</body>
+</html>

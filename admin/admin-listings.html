@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manage Listings</title>
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/assets/js/bootstrap.bundle.min.js"></script>
+  <script src="/components/include.js"></script>
+</head>
+<body>
+  <div id="header"></div>
+  <script>
+    fetch('/components/header-admin.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('header').innerHTML = html; });
+  </script>
+  <main>
+    <h2>Review and Approve Listings</h2>
+    <p>Manage submitted items for sale or display.</p>
+    <section class="listings-management">
+      <table>
+        <thead>
+          <tr>
+            <th>Listing ID</th>
+            <th>Product Name</th>
+            <th>Artisan</th>
+            <th>Status</th>
+            <th>Date Submitted</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Example row, replace with dynamic content -->
+          <tr>
+            <td>2001</td>
+            <td>Handwoven Basket</td>
+            <td>Mary Ann</td>
+            <td>Pending</td>
+            <td>2025-04-10</td>
+            <td>
+              <button>Approve</button>
+              <button>Reject</button>
+              <button>Remove</button>
+            </td>
+          </tr>
+          <!-- More rows as needed -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <div id="footer"></div>
+  <!-- Bootstrap JS Bundle CDN (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

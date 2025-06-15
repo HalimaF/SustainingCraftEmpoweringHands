@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link href="https://fonts.googleapis.com/css2?family=Fauna+One&display=swap" rel="stylesheet">
+  <meta name="description" content="A platform to preserve heritage and empower artisans." />
+  <meta name="keywords" content="artisans, crafts, heritage, empowerment" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Details - Sustaining Crafts</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div id="header"></div>
+  <main class="product-detail">
+    <div class="product-info">
+      <img id="product-img" src="" alt="Product Image">
+      <div>
+        <h2 id="product-title">Loading...</h2>
+        <p><strong>Price:</strong> <span id="product-price"></span></p>
+        <p><strong>Location:</strong> <span id="product-location"></span></p>
+        <p id="product-description"></p>
+        <button>Add to Cart</button>
+        <br><br>
+        <a href="marketplace.html">
+        <button>⬅ Back to Marketplace</button>
+        </a>
+      </div>
+    </div>
+  </main>
+  <div id="footer"></div>
+  <script>
+    // Dynamic header/footer loader
+    const user = JSON.parse(localStorage.getItem('loggedInUser'));
+    let headerFile = '/components/header-guest.html';
+    if (user && user.role === 'admin') headerFile = '/components/header-admin.html';
+    else if (user && user.role === 'seller') headerFile = '/components/header-artisan.html';
+    else if (user && user.role === 'buyer') headerFile = '/components/header-user.html';
+    fetch(headerFile)
+      .then(res => res.text())
+      .then(html => { document.getElementById('header').innerHTML = html; });
+    fetch('/components/footer.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('footer').innerHTML = html; });
+
+    const products = {
+      "pottery": {
+        title: "Handmade Pottery",
+        price: "₨ 2,500",
+        location: "Multan",
+        description: "Traditional pottery made using centuries-old techniques.",
+        image: "/assets/images/pots.jpg"
+      },
+      "shawl": {
+        title: "Handmade Shawl",
+        price: "₨ 8,000",
+        location: "Kashmir",
+        description: "Elegant handwoven shawl with warm and soft fabric.",
+        image: "/assets/images/shawl.jpg"
+      },
+      "jewelry": {
+        title: "Traditional Jewelry",
+        price: "₨ 12,000",
+        location: "Lahore",
+        description: "Beautiful jewelry with intricate traditional motifs.",
+        image: "/assets/images/jewelry.jpg"
+      },
+      "leather-bag": {
+        title: "Leather Bag",
+        price: "₨ 9,000",
+        location: "Karachi",
+        description: "Premium handmade leather bag for daily use.",
+        image: "/assets/images/Bag.jpg"
+      },
+      "wooden-toy": {
+        title: "Wooden Toy",
+        price: "₨ 1,500",
+        location: "Chiniot",
+        description: "Safe, fun, and eco-friendly wooden toy.",
+        image: "/assets/images/toys.jpg"
+      },
+      "handwoven-basket": {
+        title: "Handwoven Basket",
+        price: "₨ 3,000",
+        location: "Swat",
+        description: "Beautiful basket handwoven by local women artisans.",
+        image: "/assets/images/box.jpg"
+      },
+      "handmade-clay": {
+        title: "Handmade Clay Pot",
+        price: "₨ 2,000",
+        location: "Multan",
+        description: "Clay pot perfect for traditional cooking and decor.",
+        image: "/assets/images/pots.jpg"
+      },
+      "handcrafted-wood": {
+        title: "Handcrafted Wooden Item",
+        price: "₨ 4,500",
+        location: "Chiniot",
+        description: "Detailed wooden decor piece made by expert craftsmen.",
+        image: "/assets/images/show piece.jpg"
+      },
+      "handmade-scarf": {
+        title: "Handmade Scarf",
+        price: "₨ 1,800",
+        location: "Lahore",
+        description: "Soft, colorful scarf made from natural fibers.",
+        image: "/assets/images/scarf1.jpg"
+      },
+      "handcrafted-jewelry": {
+        title: "Handcrafted Jewelry",
+        price: "₨ 5,000",
+        location: "Islamabad",
+        description: "Elegant handmade jewelry for special occasions.",
+        image: "/assets/images/jewelry.jpg"
+      },
+      "handmade-ceramic": {
+        title: "Handmade Ceramic",
+        price: "₨ 3,500",
+        location: "Peshawar",
+        description: "Decorative ceramic piece with hand-painted design.",
+        image: "/assets/images/Handmade_ceramic.jpg"
+      },
+      "handwoven-rug": {
+        title: "Handwoven Rug",
+        price: "₨ 15,000",
+        location: "Swat",
+        description: "Durable, warm rug crafted using traditional weaving methods.",
+        image: "/assets/images/rug.jpg"
+      },
+      "handmade-cushion": {
+        title: "Handmade Cushion",
+        price: "₨ 2,200",
+        location: "Lahore",
+        description: "Soft cushion with colorful embroidery.",
+        image: "/assets/images/cushion_cover.jpg"
+      },
+      "handcrafted-wooden-toy": {
+        title: "Handcrafted Wooden Toy",
+        price: "₨ 1,800",
+        location: "Chiniot",
+        description: "Classic, fun toy built from safe natural wood.",
+        image: "/assets/images/toys.jpg"
+      },
+      "handmade-ceramic-pot": {
+        title: "Handmade Ceramic Pot",
+        price: "₨ 2,500",
+        location: "Peshawar",
+        description: "Beautiful pot made with care by local artisans.",
+        image: "/assets/images/pots.jpg"
+      },
+      "handcrafted-silver-jewelry": {
+        title: "Handcrafted Silver Jewelry",
+        price: "₨ 7,000",
+        location: "Islamabad",
+        description: "Gorgeous silver pieces with ethnic touch.",
+        image: "/assets/images/jewelry.jpg"
+      },
+      "handmade-wooden-furniture": {
+        title: "Handmade Wooden Furniture",
+        price: "₨ 25,000",
+        location: "Lahore",
+        description: "Elegant, sturdy furniture built to last generations.",
+        image: "/assets/images/wooden tray.jpg"
+      },
+      "handmade-silk-scarf": {
+        title: "Handmade Silk Scarf",
+        price: "₨ 4,000",
+        location: "Kashmir",
+        description: "Luxurious silk scarf with soft texture and fine patterns.",
+        image: "/assets/images/scarf1.jpg"
+      },
+      "handcrafted-wooden-box": {
+        title: "Handcrafted Wooden Box",
+        price: "₨ 2,800",
+        location: "Chiniot",
+        description: "Box with intricate woodwork, great for jewelry or gifts.",
+        image: "/assets/images/wooden box.jpg"
+      },
+      "handmade-ceramic-plate": {
+        title: "Handmade Ceramic Plate",
+        price: "₨ 1,500",
+        location: "Peshawar",
+        description: "Colorful decorative plate for wall or tabletop.",
+        image: "/assets/images/Handmade_ceramic.jpg"
+      },
+      "handcrafted-wooden-chest": {
+        title: "Handcrafted Wooden Chest",
+        price: "₨ 10,000",
+        location: "Lahore",
+        description: "Traditional wooden chest perfect for storage or decor.",
+        image: "/assets/images/wooden box.jpg"
+      },
+      "handmade-silk-cushion": {
+        title: "Handmade Silk Cushion",
+        price: "₨ 3,500",
+        location: "Kashmir",
+        description: "Elegant cushion with rich fabric and fine stitching.",
+        image: "/assets/images/cushion_cover.jpg"
+      },
+      "handcrafted-wooden-sculpture": {
+        title: "Handcrafted Wooden Sculpture",
+        price: "₨ 8,000",
+        location: "Chiniot",
+        description: "Artistic sculpture carved with deep detail.",
+        image: "/assets/images/show piece.jpg"
+      },
+      "handmade-ceramic-vase": {
+        title: "Handmade Ceramic Vase",
+        price: "₨ 2,200",
+        location: "Peshawar",
+        description: "Glazed ceramic vase ideal for decor and flowers.",
+        image: "/assets/images/Handmade_ceramic.jpg"
+      },
+      "handcrafted-wooden-table": {
+        title: "Handcrafted Wooden Table",
+        price: "₨ 20,000",
+        location: "Lahore",
+        description: "Solid wood table with traditional Pakistani design.",
+        image: "/assets/images/wooden tray.jpg"
+      },
+      "handmade-silk-wall-hanging": {
+        title: "Handmade Silk Wall Hanging",
+        price: "₨ 6,000",
+        location: "Kashmir",
+        description: "Decorative silk piece for your home walls.",
+        image: "/assets/images/scarf1.jpg"
+      }
+    };
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get("id");
+    const product = products[productId];
+
+    if (product) {
+      document.getElementById("product-img").src = product.image;
+      document.getElementById("product-img").alt = product.title;
+      document.getElementById("product-title").textContent = product.title;
+      document.getElementById("product-price").textContent = product.price;
+      document.getElementById("product-location").textContent = product.location;
+      document.getElementById("product-description").textContent = product.description;
+    } else {
+      document.querySelector(".product-info").innerHTML = "<p>Product not found.</p>";
+    }
+  </script>
+</body>
+</html>

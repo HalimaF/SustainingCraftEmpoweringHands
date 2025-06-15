@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Management</title>
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/assets/js/bootstrap.bundle.min.js"></script>
+  <script src="/components/include.js"></script>
+</head>
+<body>
+  <div id="header"></div>
+  <script>
+    fetch('/components/header-admin.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('header').innerHTML = html; });
+  </script>
+  <main>
+    <h2>View and Manage Users</h2>
+    <p>Approve/reject artisans, remove users, assign roles.</p>
+    <section class="user-management">
+      <table>
+        <thead>
+          <tr>
+            <th>User ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Example row, replace with dynamic content -->
+          <tr>
+            <td>001</td>
+            <td>Jane Doe</td>
+            <td>jane@example.com</td>
+            <td>Artisan</td>
+            <td>Pending</td>
+            <td>
+              <button>Approve</button>
+              <button>Reject</button>
+              <button>Remove</button>
+              <select>
+                <option>User</option>
+                <option>Artisan</option>
+                <option>Admin</option>
+              </select>
+            </td>
+          </tr>
+          <!-- More rows as needed -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <div id="footer"></div>
+  <!-- Bootstrap JS Bundle CDN (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

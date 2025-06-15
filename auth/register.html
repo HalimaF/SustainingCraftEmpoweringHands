@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link href="https://fonts.googleapis.com/css2?family=Fauna+One&display=swap" rel="stylesheet">
+  <meta name="description" content="A platform to preserve heritage and empower artisans." />
+  <meta name="keywords" content="artisans, crafts, heritage, empowerment" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register - Sustaining Crafts, Empowering Hands</title>
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/assets/js/bootstrap.bundle.min.js"></script>
+  <script src="/components/include.js"></script>
+</head>
+<body>
+  <div id="header"></div>
+  <script>
+    fetch('/components/header-guest.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('header').innerHTML = html; });
+  </script>
+  <main class="form-container">
+    <h2>Create an Account</h2>
+    <form>
+      <label>Name:</label>
+      <input type="text" required>
+
+      <label>Email:</label>
+      <input type="email" required>
+
+      <label>Password:</label>
+      <input type="password" required>
+
+      <label>Confirm Password:</label>
+      <input type="password" required>
+
+      <label for="role">Register as:</label>
+      <select id="role" required onchange="handleRoleChange()">
+        <option value="">--Select Role--</option>
+        <option value="buyer">Buyer</option>
+        <option value="seller">Seller</option>
+        <option value="admin">Admin</option>
+      </select>
+
+      <div id="common-fields" class="hidden">
+        <label>Phone Number:</label>
+        <input type="tel">
+
+        <label>Address:</label>
+        <input type="text">
+
+        <label>City:</label>
+        <input type="text">
+
+        <label>Country:</label>
+        <input type="text">
+
+        <label>Postal Code:</label>
+        <input type="text">
+      </div>
+
+      <div id="seller-fields" class="hidden">
+        <label>Profile Picture:</label>
+        <input type="file" accept="image/*">
+
+        <label>Bio:</label>
+        <textarea rows="4"></textarea>
+      </div>
+
+      <button type="submit">Register</button>
+    </form>
+  </main>
+  <div id="footer"></div>
+  <script>
+    function handleRoleChange() {
+      const role = document.getElementById('role').value;
+      const commonFields = document.getElementById('common-fields');
+      const sellerFields = document.getElementById('seller-fields');
+
+      // Hide all optional sections first
+      commonFields.classList.add('hidden');
+      sellerFields.classList.add('hidden');
+
+      if (role === 'buyer') {
+        commonFields.classList.remove('hidden');
+      } else if (role === 'seller') {
+        commonFields.classList.remove('hidden');
+        sellerFields.classList.remove('hidden');
+      }
+    }
+  </script>
+</body>
+</html>

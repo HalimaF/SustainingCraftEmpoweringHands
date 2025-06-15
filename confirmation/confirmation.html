@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Order Confirmation - Sustaining Crafts, Empowering Hands</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/components/include.js"></script>
+</head>
+<body>
+    <div id="header"></div>
+    <script>
+      // Load the correct header based on user role
+      const user = JSON.parse(localStorage.getItem('loggedInUser'));
+      let headerFile = '/components/header-guest.html';
+      if (user && user.role === 'admin') headerFile = '/components/header-admin.html';
+      else if (user && user.role === 'seller') headerFile = '/components/header-artisan.html';
+      else if (user && user.role === 'buyer') headerFile = '/components/header-user.html';
+      fetch(headerFile)
+        .then(res => res.text())
+        .then(html => { document.getElementById('header').innerHTML = html; });
+    </script>
+    <main class="container my-5 text-center">
+        <div class="card mx-auto" style="max-width: 500px;">
+            <div class="card-body">
+                <h2 class="mb-3 text-success">Thank You for Your Order!</h2>
+                <p class="lead">Your order has been placed successfully.</p>
+                <p>We appreciate your support for local artisans. You will receive a confirmation email with your order details soon.</p>
+                <hr>
+                <h5 class="mb-2">Order Summary</h5>
+                <ul class="list-group mb-3 text-start">
+                    <li class="list-group-item">Order ID: <strong>ORD-1050</strong></li>
+                    <li class="list-group-item">Product: <strong>Handwoven Basket</strong></li>
+                    <li class="list-group-item">Total: <strong>₨ 3,000</strong></li>
+                    <li class="list-group-item">Estimated Delivery: <strong>3-5 business days</strong></li>
+                </ul>
+                <a href="/Frontend/marketplace.html" class="btn btn-primary">Continue Shopping</a>
+                <a href="/components/user/order-history.html" class="btn btn-outline-secondary ms-2">View My Orders</a>
+            </div>
+        </div>
+    </main>
+    <footer class="footer text-center py-3">
+        <p>&copy; 2025 Sustaining Crafts, Empowering Hands. All rights reserved.</p>
+    </footer>
+</body>
+</html>

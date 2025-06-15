@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Order Tracking - Sustaining Crafts, Empowering Hands</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/components/include.js"></script>
+</head>
+<body>
+    <div id="header"></div>
+    <script>
+      // Load the correct header based on user role
+      const user = JSON.parse(localStorage.getItem('loggedInUser'));
+      let headerFile = '/components/header-guest.html';
+      if (user && user.role === 'admin') headerFile = '/components/header-admin.html';
+      else if (user && user.role === 'seller') headerFile = '/components/header-artisan.html';
+      else if (user && user.role === 'buyer') headerFile = '/components/header-user.html';
+      fetch(headerFile)
+        .then(res => res.text())
+        .then(html => { document.getElementById('header').innerHTML = html; });
+    </script>
+    <main class="container my-5">
+        <h2 class="mb-4">Order Tracking</h2>
+        <form class="row g-3 mb-4" id="trackingForm">
+            <div class="col-md-8">
+                <input type="text" class="form-control" id="orderId" placeholder="Enter your Order ID (e.g., ORD-1050)" required />
+            </div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary w-100">Track Order</button>
+            </div>
+        </form>
+        <div id="trackingResult"></div>
+    </main>
+    <div id="footer"></div>
+    <script>
+    document.getElementById('trackingForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const orderId = document.getElementById('orderId').value.trim();
+        // Example static data for demonstration
+        const orders = {
+            'ORD-1050': {
+                status: 'Delivered',
+                steps: [
+                    { label: 'Order Placed', done: true },
+                    { label: 'Processing', done: true },
+                    { label: 'Shipped', done: true },
+                    { label: 'Delivered', done: true }
+                ],
+                date: '2025-05-12',
+                product: 'Handwoven Basket',
+                total: '₨ 3,000'
+            },
+            'ORD-1042': {
+                status: 'Shipped',
+                steps: [
+                    { label: 'Order Placed', done: true },
+                    { label: 'Processing', done: true },
+                    { label: 'Shipped', done: true },
+                    { label: 'Delivered', done: false }
+                ],
+                date: '2025-04-28',
+                product: 'Embroidered Shawl',
+                total: '₨ 5,000'
+            }
+        };
+        const order = orders[orderId];
+        if (!order) {
+            document.getElementById('trackingResult').innerHTML = `<div class='alert alert-danger'>Order not found. Please check your Order ID.</div>`;
+            return;
+        }
+        let stepsHtml = '<ul class="list-group mb-3">';
+        order.steps.forEach(step => {
+            stepsHtml += `<li class="list-group-item${step.done ? ' list-group-item-success' : ''}">${step.label} ${step.done ? '<span class="badge bg-success float-end">Done</span>' : '<span class="badge bg-secondary float-end">Pending</span>'}</li>`;
+        });
+        stepsHtml += '</ul>';
+        document.getElementById('trackingResult').innerHTML = `
+            <div class='card mx-auto' style='max-width: 500px;'>
+                <div class='card-body'>
+                    <h5 class='card-title mb-3'>Order ID: <strong>${orderId}</strong></h5>
+                    <p><strong>Product:</strong> ${order.product}</p>
+                    <p><strong>Date:</strong> ${order.date}</p>
+                    <p><strong>Total:</strong> ${order.total}</p>
+                    <h6 class='mb-2'>Tracking Status</h6>
+                    ${stepsHtml}
+                    <div class='text-end'><span class='badge bg-info'>Current Status: ${order.status}</span></div>
+                </div>
+            </div>
+        `;
+    });
+    </script>
+      <div id="footer"></div>
+  <!-- Bootstrap JS Bundle CDN (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

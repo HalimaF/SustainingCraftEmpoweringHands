@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Analytics Dashboard</title>
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/assets/js/bootstrap.bundle.min.js"></script>
+  <script src="/components/include.js"></script>
+</head>
+<body>
+  <div id="header"></div>
+  <script>
+    fetch('/components/header-admin.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('header').innerHTML = html; });
+  </script>
+  <main>
+    <h2>Platform Analytics</h2>
+    <section class="analytics-dashboard">
+      <div class="analytics-cards">
+        <div class="card">
+          <h3>Total Users</h3>
+          <p>1,250</p>
+        </div>
+        <div class="card">
+          <h3>Total Artisans</h3>
+          <p>320</p>
+        </div>
+        <div class="card">
+          <h3>Sales This Month</h3>
+          <p>₨2,400,000</p>
+        </div>
+        <div class="card">
+          <h3>Active Listings</h3>
+          <p>540</p>
+        </div>
+      </div>
+      <h3>Sales Trends</h3>
+      <img src="analytics-sales-trend-placeholder.png" alt="Sales Trend Graph" style="width:100%;max-width:600px;">
+      <h3>Course Engagement</h3>
+      <img src="analytics-course-engagement-placeholder.png" alt="Course Engagement Graph" style="width:100%;max-width:600px;">
+      <h3>Top Performing Artisans</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Artisan</th>
+            <th>Sales</th>
+            <th>Listings</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ayesha Khan</td>
+            <td>₨600,000</td>
+            <td>15</td>
+          </tr>
+          <tr>
+            <td>Ali Raza</td>
+            <td>₨480,000</td>
+            <td>12</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <div id="footer"></div>
+  <!-- Bootstrap JS Bundle CDN (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

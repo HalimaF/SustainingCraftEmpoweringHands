@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Teach a Course - Artisan Dashboard | Sustaining Crafts, Empowering Hands</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/components/include.js"></script>
+</head>
+<body>
+    <div id="header"></div>
+    <script>
+      fetch('/components/header-artisan.html')
+        .then(res => res.text())
+        .then(html => { document.getElementById('header').innerHTML = html; });
+    </script>
+    <main class="container my-5">
+        <h2 class="mb-4">Teach a Course</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Submit a New Course</h5>
+                        <form id="teachCourseForm">
+                            <div class="mb-3">
+                                <label for="courseTitle" class="form-label">Course Title</label>
+                                <input type="text" class="form-control" id="courseTitle" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="courseDesc" class="form-label">Description</label>
+                                <textarea class="form-control" id="courseDesc" rows="3" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="courseDuration" class="form-label">Duration (weeks)</label>
+                                <input type="number" class="form-control" id="courseDuration" min="1" max="52" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="courseLevel" class="form-label">Level</label>
+                                <select class="form-select" id="courseLevel" required>
+                                    <option value="">--Select--</option>
+                                    <option value="Beginner">Beginner</option>
+                                    <option value="Intermediate">Intermediate</option>
+                                    <option value="Advanced">Advanced</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-success">Submit Course</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">My Submitted Courses</h5>
+                        <table class="table table-bordered table-sm mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Level</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="myCoursesList">
+                                <tr>
+                                    <td>Wood Carving Masterclass</td>
+                                    <td>Intermediate</td>
+                                    <td><span class="badge bg-success">Approved</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Pottery Techniques</td>
+                                    <td>Beginner</td>
+                                    <td><span class="badge bg-warning">Pending</span></td>
+                                </tr>
+                                <!-- More rows as needed -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="footer"></div>
+</body>
+</html>

@@ -1,0 +1,557 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Fauna+One&display=swap');
+
+/* === Custom Color Palette Based on Provided Image === */
+:root {
+  --deep-blue: #23395d;
+  --gold: #f3c969;
+  --orange: #e4572e;
+  --accent-teal: #2e7d7b;
+  --off-white: #f9f6f2;
+  --dark-brown: #4b3621;
+}
+
+body {
+    font-family: 'Fauna One', serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #f3c969 0%, #f9f6f2 60%, #23395d 100%);
+    background-attachment: fixed;
+    color: var(--dark-brown); 
+    animation: fadeInBody 1.5s ease-in;
+    -webkit-animation: fadeInBody 1.5s ease-in;
+}
+
+
+@keyframes fadeInBody {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+/* Header & Navigation */
+header {
+    background-color: var(--gold) !important; /* Yellow header */
+    background-image: url('/assets/images/Doodle.jpg');
+    background-repeat: repeat;
+    background-size: contain;
+    background-position: center;
+    background-blend-mode: multiply;
+    color: var(--deep-blue);
+    padding: 60px 20px;
+    text-align: center;
+    text-shadow: 1px 1px 2px #00000066;
+    animation: slideInDown 1s ease;
+    -webkit-animation: slideInDown 1s ease;
+}
+
+header h1 {
+    font-size: 3rem;
+    color: var(--deep-blue);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    
+}
+
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    padding: 15px 0; /* Remove side padding */
+    margin: 0 0 20px 0; /* Remove auto margin */
+    max-width: 100%; /* Full width */
+    position: relative;
+    top: 20px;
+    z-index: 2;
+}
+
+.navbar {
+    background-color: var(--deep-blue) !important;
+    color: var(--gold) !important;
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    padding: 12px 32px !important;
+    margin: 0 0 24px 0;
+    max-width: 100%;
+    position: relative;
+    top: 20px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav a {
+    color: var(--gold) !important;
+    margin: 0 18px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.08rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+nav a i {
+    font-size: 1.2rem;
+}
+
+nav a:hover {
+    color: var(--orange) !important;
+    background: rgba(243, 201, 105, 0.12);
+    text-decoration: underline;
+    transform: scale(1.08);
+}
+
+  .custom-profile-dropdown {
+    background: #22304a !important;
+    border: 1px solid #22304a;
+  }
+  .custom-profile-dropdown .dropdown-item {
+    color: #fff !important;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+  }
+  .custom-profile-dropdown .dropdown-item:hover {
+    background: #2d3e5e !important;
+    color: #ffd700 !important;
+  }
+/* Main Content */
+main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    animation: fadeInMain 1s ease-in;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Fauna One', serif;
+    color: #1a2236;
+    text-shadow: 2px 2px 8px #FFD166, 0 2px 8px #fff, 0 0 2px #23395d;
+    margin-top: 1.2em;
+    text-align: center;
+    font-weight: 1000 !important;
+    letter-spacing: 2px;
+}
+h1 {
+    font-size: 3.5rem !important;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+h2 {
+    font-size: 2.5rem !important;
+    margin-bottom: 0.7em;
+}
+h3 {
+    font-size: 1.8rem !important;
+}
+h4 {
+    font-size: 1.4rem !important;
+}
+
+h1::after, h2::after {
+    content: '';
+    display: block;
+    margin: 10px auto;
+    width: 60px;
+    border-bottom: 3px dotted #FFD166;
+}
+
+/* Paragraphs & Lists */
+p {
+    font-size: 1.05rem;
+    margin-bottom: 1.2em;
+}
+
+ul li::before {
+    content: "✨";
+    color: #EF476F;
+}
+
+/* Forms - Enhanced */
+form {
+    max-width: 400px;
+    margin: 40px auto;
+    background: #FFFBF0;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeInForm 1s ease-in-out;
+}
+
+form h2 {
+    text-align: center;
+    color: var(--deep-blue);
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #06D6A0; /* Turquoise Green */
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #FFD166;
+    box-shadow: 0 0 5px rgba(255, 209, 102, 0.6);
+}
+
+button,
+input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--orange);
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background-color: var(--accent-teal);
+    color: #fff;
+}
+
+@keyframes fadeInForm {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Card Styling */
+.card {
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    border: 1.5px solid var(--gold);
+    transition: box-shadow 0.3s;
+}
+.card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+}
+.card h3, .card h5 {
+    color: var(--orange);
+}
+.card p {
+    color: var(--deep-blue);
+}
+
+/* Product & Course Card Custom Styles */
+.product-card, .course-card {
+    border: 2px solid var(--accent-teal);
+    border-radius: 18px;
+    box-shadow: 0 4px 16px rgba(35,57,93,0.10);
+    background: #fff;
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+.product-card:hover, .course-card:hover {
+    box-shadow: 0 8px 32px rgba(228,87,46,0.13);
+    border-color: var(--orange);
+}
+.product-card .card-title, .course-card .card-title {
+    color: var(--deep-blue);
+    font-weight: bold;
+}
+.product-card .price {
+    color: var(--orange);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.product-card .btn, .course-card .btn {
+    background: var(--deep-blue);
+    color: var(--gold);
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.2s, color 0.2s;
+}
+.product-card .btn:hover, .course-card .btn:hover {
+    background: var(--orange);
+    color: #fff;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(90deg, #f3e281 0%, #b08968 100%); /* Yellow to soft brown gradient */
+    color: #1B6B57;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;  
+    width: 100%;
+    animation: fadeInFooter 1s ease-in;
+    -webkit-animation: fadeInFooter 1s ease-in;
+}
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+@keyframes fadeInFooter {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+    nav {
+        padding: 10px 20px;
+    }
+    nav a {
+        font-size: 0.9rem;
+        margin: 0 10px;
+    }
+    main {
+        padding: 0 10px;
+    }
+    form {
+        padding: 20px;
+    }
+}
+
+/* Navbar Logo */
+.navbar-logo {
+    height: 48px;
+    width: auto;
+    margin-right: 18px;
+    vertical-align: middle;
+}
+
+/* Navbar Alignment & Boxed Look */
+nav, .navbar {
+    color: var(--gold) !important;
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    padding: 12px 32px !important;
+    margin: 0 0 24px 0;
+    max-width: 100%;
+    position: relative;
+    top: 20px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar .nav-link, nav .nav-link, nav a {
+    color: var(--gold) !important;
+    background: none !important;
+}
+.navbar .nav-link:hover, nav .nav-link:hover, nav a:hover {
+    color: var(--orange) !important;
+    background: rgba(243, 201, 105, 0.12) !important;
+    text-decoration: underline;
+    transform: scale(1.08);
+}
+
+/* Main Content Card/Box */
+.main-card, .content-box, main.card-boxed {
+    background: rgba(255, 251, 240, 0.95);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(35,57,93,0.10);
+    padding: 40px 32px;
+    margin: 40px auto;
+    max-width: 1000px;
+    width: 100%;
+    animation: fadeInMain 1s ease-in;
+}
+
+/* For all main content, add .main-card or .content-box class in HTML for boxed look */
+
+/* Card Grid for Dashboards */
+.card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+}
+.card-grid .card {
+    min-width: 260px;
+    flex: 1 1 260px;
+    max-width: 340px;
+}
+
+/* Additional Styles */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #E0E0E0;
+    }
+    header {
+        background-color: #1B6B57;
+        color: #FFD166;
+    }
+    nav {
+        background-color: #333;
+    }
+    nav a {
+        color: #FFD166;
+    }
+    main h1, main h2 {
+        color: #FFD166;
+    }
+    footer {
+        background-color: #1B6B57;
+        color: #FFD166;
+    }
+}
+/* Dark Mode Enhancements */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #E0E0E0;
+    }
+    header {
+        background-color: #1B6B57;
+        color: #FFD166;
+    }
+    nav {
+        background-color: #333;
+    }
+    nav a {
+        color: #FFD166;
+    }
+    main h1, main h2 {
+        color: #FFD166;
+    }
+    footer {
+        background-color: #1B6B57;
+        color: #FFD166;
+    }
+}
+/* Additional Animations */
+@keyframes slideInDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes fadeInMain {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fadeInFooter {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+@-webkit-keyframes fadeInFooter {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+/* Additional Styles for Forms */
+form input[type="text"],
+form input[type="password"],
+form input[type="email"],
+form input[type="tel"],
+form textarea,
+form select {
+    background-color: #FFFBF0; /* Light background for form inputs */
+    color: #333; /* Dark text for better readability */
+    font-size: 1rem;
+}
+form input[type="text"]::placeholder,
+form input[type="password"]::placeholder,
+form input[type="email"]::placeholder,
+form input[type="tel"]::placeholder,
+form textarea::placeholder,
+form select::placeholder {
+    color: #888; /* Placeholder text color */
+}
+form input[type="text"]:focus,
+form input[type="password"]:focus,
+form input[type="email"]:focus,
+form input[type="tel"]:focus,
+form textarea:focus,
+form select:focus {
+    border-color: #FFD166; /* Highlight border on focus */
+    box-shadow: 0 0 5px rgba(255, 209, 102, 0.6); /* Subtle glow effect */
+}
+
+/* Sidebar Toggle Button in Header (Guest & User) */
+#sidebarToggle {
+    position: absolute !important;
+    top: 18px;
+    right: 24px;
+    z-index: 10001;
+    border: none;
+    background: none;
+    box-shadow: none;
+    color: #333;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#sidebarToggle span {
+    font-size: 2.2rem;
+    line-height: 1;
+}
+@media (max-width: 600px) {
+    #sidebarToggle {
+        top: 10px;
+        right: 10px;
+    }
+}
+
+/* Sidebar overlay for More links */
+#sidebarMenu {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 320px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -2px 0 16px rgba(0,0,0,0.15);
+    z-index: 9999;
+    transition: right 0.3s;
+    padding: 32px 18px 18px 18px;
+    overflow-y: auto;
+}
+#sidebarMenu.open {
+    right: 0 !important;
+}
+#sidebarClose {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #333;
+}

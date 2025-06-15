@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Logging Out</title>
+  <script>
+    localStorage.removeItem('loggedInUser');
+    window.location.href = '/auth/login.html';
+  </script>
+</head>

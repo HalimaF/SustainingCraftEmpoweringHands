@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Course Detail - Sustaining Crafts, Empowering Hands</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/components/include.js"></script>
+</head>
+<body>
+    <div id="header"></div>
+    <script>
+      // Load the correct header based on user role
+      const user = JSON.parse(localStorage.getItem('loggedInUser'));
+      let headerFile = '/components/header-guest.html';
+      if (user && user.role === 'admin') headerFile = '/components/header-admin.html';
+      else if (user && user.role === 'seller') headerFile = '/components/header-artisan.html';
+      else if (user && user.role === 'buyer') headerFile = '/components/header-user.html';
+      fetch(headerFile)
+        .then(res => res.text())
+        .then(html => { document.getElementById('header').innerHTML = html; });
+    </script>
+    <main class="container my-5">
+        <div class="row">
+            <div class="col-md-7">
+                <h2>Wood Carving Masterclass</h2>
+                <p class="lead">Instructor: Ustad Imran Qureshi</p>
+                <p><strong>Duration:</strong> 6 weeks</p>
+                <p><strong>Level:</strong> Beginner to Intermediate</p>
+                <p><strong>Description:</strong> Learn the art of traditional wood carving from a master artisan. This course covers tools, techniques, and hands-on projects to help you create your own beautiful pieces.</p>
+                <ul>
+                    <li>Introduction to wood types and tools</li>
+                    <li>Basic and advanced carving techniques</li>
+                    <li>Finishing and polishing</li>
+                    <li>Project: Carve your own decorative panel</li>
+                </ul>
+                <button class="btn btn-success">Enroll Now</button>
+                <button class="btn btn-outline-primary ms-2">Download Resources</button>
+            </div>
+            <div class="col-md-5">
+                <div class="ratio ratio-16x9 mb-3">
+                    <iframe src="https://www.youtube.com/embed/pA_OZGztFHk" title="Course Preview" allowfullscreen></iframe>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Course Progress</h5>
+                        <div class="progress mb-2">
+                            <div class="progress-bar" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">40%</div>
+                        </div>
+                        <a href="#" class="btn btn-primary btn-sm">Continue Learning</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <h4 class="mb-3">Student Reviews</h4>
+        <div class="mb-4">
+            <div class="border rounded p-3 mb-2">
+                <strong>Ali Raza</strong> <span class="text-warning">★★★★★</span>
+                <p>Very detailed and easy to follow. Highly recommended!</p>
+            </div>
+            <div class="border rounded p-3 mb-2">
+                <strong>Sadia Baloch</strong> <span class="text-warning">★★★★☆</span>
+                <p>Great instructor and practical projects.</p>
+            </div>
+        </div>
+        <h5>Add a Review</h5>
+        <form class="mb-5">
+            <div class="mb-3">
+                <label for="reviewText" class="form-label">Your Review</label>
+                <textarea class="form-control" id="reviewText" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="reviewRating" class="form-label">Rating</label>
+                <select class="form-select" id="reviewRating" required>
+                    <option value="">--Select--</option>
+                    <option value="5">5 - Excellent</option>
+                    <option value="4">4 - Good</option>
+                    <option value="3">3 - Average</option>
+                    <option value="2">2 - Fair</option>
+                    <option value="1">1 - Poor</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-success">Submit Review</button>
+        </form>
+    </main>
+  <div id="footer"></div>
+  <!-- Bootstrap JS Bundle CDN (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

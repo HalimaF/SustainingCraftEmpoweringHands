@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Fauna+One&display=swap" rel="stylesheet">
+    <meta name="description" content="A platform for artisans to showcase their crafts and connect with customers." />
+    <meta name="keywords" content="artisans, crafts, heritage, empowerment" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Artisan Dashboard - Sustaining Crafts, Empowering Hands</title>
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/components/include.js"></script>
+</head>
+<body>
+    <div id="header"></div>
+    <script>
+      fetch('/components/header-artisan.html')
+        .then(res => res.text())
+        .then(html => { document.getElementById('header').innerHTML = html; });
+    </script>
+    <script>
+        const user = JSON.parse(localStorage.getItem('loggedInUser'));
+        if (!user || user.role !== 'seller') {
+            alert('Access Denied: Seller Only');
+            window.location.href = '/auth/login.html';
+        }
+    </script>
+    <main class="artisan-dashboard container my-5">
+        <div class="row mb-4">
+            <div class="col-12 text-center">
+                <h2 class="mb-3">Welcome to Your Artisan Dashboard</h2>
+                <p class="lead">Manage your profile, products, orders, earnings, and learning resources all in one place.</p>
+            </div>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4 col-lg-3">
+                <div class="card dashboard-card h-100 text-center shadow-sm border-0">
+                    <div class="card-body py-4">
+                        <i class="bi bi-person-circle display-4 text-primary mb-3"></i>
+                        <h5 class="card-title mb-2">Profile</h5>
+                        <p class="card-text small">View and update your artisan profile and contact details.</p>
+                        <a href="/artisians/profile.html" class="btn btn-outline-primary w-100">Go to Profile</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <div class="card dashboard-card h-100 text-center shadow-sm border-0">
+                    <div class="card-body py-4">
+                        <i class="bi bi-box-seam display-4 text-success mb-3"></i>
+                        <h5 class="card-title mb-2">Products</h5>
+                        <p class="card-text small">Manage your product listings and add new crafts.</p>
+                        <a href="/artisians/products.html" class="btn btn-outline-success w-100">Manage Products</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <div class="card dashboard-card h-100 text-center shadow-sm border-0">
+                    <div class="card-body py-4">
+                        <i class="bi bi-bag-check display-4 text-warning mb-3"></i>
+                        <h5 class="card-title mb-2">Orders</h5>
+                        <p class="card-text small">Track and fulfill your customer orders.</p>
+                        <a href="/artisians/orders.html" class="btn btn-outline-warning w-100">View Orders</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <div class="card dashboard-card h-100 text-center shadow-sm border-0">
+                    <div class="card-body py-4">
+                        <i class="bi bi-cash-coin display-4 text-info mb-3"></i>
+                        <h5 class="card-title mb-2">Earnings</h5>
+                        <p class="card-text small">See your sales and earnings summary.</p>
+                        <a href="/artisians/earnings.html" class="btn btn-outline-info w-100">View Earnings</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <div class="card dashboard-card h-100 text-center shadow-sm border-0">
+                    <div class="card-body py-4">
+                        <i class="bi bi-journal-bookmark-fill display-4 text-danger mb-3"></i>
+                        <h5 class="card-title mb-2">Learning</h5>
+                        <p class="card-text small">Access tutorials and learning resources.</p>
+                        <a href="/artisians/learning.html" class="btn btn-outline-danger w-100">Start Learning</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <div class="card dashboard-card h-100 text-center shadow-sm border-0">
+                    <div class="card-body py-4">
+                        <i class="bi bi-easel2-fill display-4 text-secondary mb-3"></i>
+                        <h5 class="card-title mb-2">Teach a Course</h5>
+                        <p class="card-text small">Share your skills by teaching a course.</p>
+                        <a href="/artisians/teach-course.html" class="btn btn-outline-secondary w-100">Teach Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2025 Sustaining Crafts, Empowering Hands. All rights reserved.</p>
+    </footer>
+    <style>
+    .dashboard-card {
+      border-radius: 18px;
+      transition: box-shadow 0.3s, transform 0.3s;
+      background: #fff;
+    }
+    .dashboard-card:hover {
+      box-shadow: 0 8px 32px rgba(35,57,93,0.18);
+      transform: translateY(-6px) scale(1.03);
+    }
+    </style>
+</body>
+</html>
